@@ -22,7 +22,8 @@ public partial class MainWindow : Window
         {
             var request = new HttpRequestMessage(HttpMethod.Parse(MethodTextBox.Text), UrlTextBox.Text);
             var response = await _httpClient.SendAsync(request);
-            Console.WriteLine($"Status: {response.StatusCode}, Body: {response.Content.ReadAsStringAsync().Result}");
+            var resultWindow = new ResultWindow(response);
+            await resultWindow.ShowDialog(this);
         }
         catch (Exception ex)
         {

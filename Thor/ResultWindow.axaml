@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Thor.ResultWindow"
+        Title="ResultWindow"
+        Width="500"
+        Height="500">
+    
+    <ScrollViewer>
+        <StackPanel>
+            <Label Content="HTTP Request Results" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <Label Content="Status" Margin="10,10,10,0" x:Name="StatusLabel"/>
+            
+            <Label Content="Headers" Margin="10,10,10,0"/>
+            <ListBox x:Name="HeadersListBox" Margin="10, 10, 10, 0"/>
+            
+            <Label Content="Body" Margin="10,10,10,0"/>
+            <TextBlock
+                x:Name="BodyTextBlock" 
+                TextWrapping="Wrap" 
+                Margin="10,10,10,0"
+                Background="DimGray"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
