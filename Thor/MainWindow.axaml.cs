@@ -26,7 +26,8 @@ public partial class MainWindow : Window
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            var errorWindow = new ErrorWindow(ex.GetType().ToString(), ex.Message);
+            await errorWindow.ShowDialog(this);
         }
     }
 }
