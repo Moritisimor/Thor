@@ -37,6 +37,6 @@
                         Margin="20"
                         HorizontalAlignment="Center"
                         Content="Send!"
-                        x:Name="SendButton"/>
+                        Click="SendButton_OnClick"/>
         </StackPanel>
 </Window>
