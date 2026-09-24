@@ -1,9 +1,42 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Thor.MainWindow"
-        Title="Thor">
-    Welcome to Avalonia!
+        Title="Thor"
+        Width="600"
+        Height="400"
+        FontFamily="Mono">
+        
+        <StackPanel>
+                <Label Margin="15" HorizontalAlignment="Center" Content="Thor"/>
+                <Panel Margin="10,5,0,0">
+                        <Label Content="URL"/>
+                        <TextBox 
+                                Margin="100,0,50,0" 
+                                x:Name="UrlTextBox"
+                                Background="DimGray"/>
+                </Panel>
+                
+                <Panel Margin="10,5, 0,0">
+                        <Label Content="Method"/>
+                        <TextBox 
+                                Margin="100, 0, 50, 0" 
+                                x:Name="MethodTextBox"
+                                Background="DimGray"/>
+                </Panel>
+                
+                <Panel Margin="10, 5, 0, 0">
+                        <Label Content="Body"/>
+                        <TextBox 
+                                Margin="100, 0, 50, 0" 
+                                x:Name="BodyTextBox"
+                                Height="175"
+                                Background="DimGray"/>
+                </Panel>
+                
+                <Button 
+                        Margin="20"
+                        HorizontalAlignment="Center"
+                        Content="Send!"
+                        x:Name="SendButton"/>
+        </StackPanel>
 </Window>
