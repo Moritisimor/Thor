@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Thor.ErrorWindow"
+        Title="An Error has occurred!"
+        Width="400"
+        Height="300"
+        FontFamily="Mono">
+        
+        <StackPanel>
+                <Label 
+                        Margin="0,20,0,0" 
+                        Content="Title goes here" 
+                        HorizontalAlignment="Center"
+                        x:Name="TitleLabel"/>
+                
+                <TextBlock
+                        Margin="0,50,0,0"
+                        Text="Message goes here"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Center"
+                        x:Name="MessageTextBlock"/>
+                
+                <Button 
+                        Click="CloseButton_OnClick"
+                        Content="Close"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0"/>
+        </StackPanel>
+</Window>
