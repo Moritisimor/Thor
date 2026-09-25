@@ -16,7 +16,7 @@
                         <Label Content="Method"/>
                         <TextBox 
                                 Margin="120, 0, 50, 0"
-                                x:Name="MethodTextBox"
+                                x:Name="MethodTextBox "
                                 Text="GET"/>
                 </Panel>
                 
@@ -47,14 +47,20 @@
                 
                 <Panel>
                         <Button
-                                Content="Add Header"
+                                Content="Add"
                                 Margin="180,5,0,0"
                                 Click="AddHeaderButton_OnClick"/>
                         
                         <Button
-                                Content="Delete Header"
-                                Margin="300,5,0,0"
+                                Content="Delete"
+                                Margin="230,5,0,0"
                                 Click="DeleteHeaderButton_OnClick"/>
+                        
+                        <CheckBox 
+                                Content="Check JSON"
+                                Margin="310,5,0,0"
+                                x:Name="CheckJsonCheckBox"
+                                IsChecked="True"/>
                 </Panel>
                 
                 <Panel Margin="10, 5, 0, 0">

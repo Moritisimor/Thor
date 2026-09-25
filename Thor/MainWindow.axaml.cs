@@ -25,7 +25,10 @@ public partial class MainWindow : Window
             request.Content = new StringContent(BodyTextBox?.Text ?? "");
             var contentTypeHeader = new MediaTypeHeaderValue(ContentTypeTextBox.Text ?? "text/plain");
             request.Content.Headers.ContentType = contentTypeHeader;
-            
+
+            if (CheckJsonCheckBox.IsChecked == true && (ContentTypeTextBox?.Text?.Contains("json") ?? false))
+                System.Text.Json.JsonSerializer.Deserialize<object>(BodyTextBox?.Text ?? "");
+
             var response = await _httpClient.SendAsync(request);
             var resultWindow = new ResultWindow(response);
             resultWindow.Show(this);
@@ -49,10 +52,13 @@ public partial class MainWindow : Window
             
             if (HeaderKeyTextBox.Text.Contains(' ') 
                 || HeaderKeyTextBox.Text.Contains('\t')
-                || HeaderKeyTextBox.Text.Contains('\n'))
+                || HeaderKeyTextBox.Text.Contains('\n')
+                || HeaderKeyTextBox.Text.Contains('\r'))
                 throw new InvalidOperationException("Header keys may not contain whitespace");
 
             HeadersListBox.Items.Add($"{HeaderKeyTextBox.Text.Trim()}: {HeaderValueTextBox.Text.Trim()}");
+            HeaderKeyTextBox.Text = "";
+            HeaderValueTextBox.Text = "";
         }
         catch (Exception ex)
         {
@@ -63,7 +69,7 @@ public partial class MainWindow : Window
 
     private void DeleteHeaderButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        if (HeadersListBox.SelectedItem is not string item) 
+        if (HeadersListBox.SelectedItem is not string item)
             return;
         
         HeadersListBox.Items.Remove(item);
