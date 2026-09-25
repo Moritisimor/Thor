@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Thor.ResultWindow"
-        Title="ResultWindow"
+        Title="Http Request Results"
         Width="500"
         Height="500">
     
@@ -17,8 +17,7 @@
             <TextBlock
                 x:Name="BodyTextBlock" 
                 TextWrapping="Wrap" 
-                Margin="10,10,10,0"
-                Background="DimGray"/>
+                Margin="10,10,10,0"/>
         </StackPanel>
     </ScrollViewer>
 </Window>

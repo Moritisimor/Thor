@@ -3,40 +3,75 @@
         x:Class="Thor.MainWindow"
         Title="Thor"
         Width="600"
-        Height="400"
+        Height="550"
         FontFamily="Mono">
         
         <StackPanel>
-                <Label Margin="15" HorizontalAlignment="Center" Content="Thor"/>
                 <Panel Margin="10,5,0,0">
                         <Label Content="URL"/>
-                        <TextBox 
-                                Margin="100,0,50,0" 
-                                x:Name="UrlTextBox"
-                                Background="DimGray"/>
+                        <TextBox Margin="120,0,50,0" x:Name="UrlTextBox"/>
                 </Panel>
                 
                 <Panel Margin="10,5, 0,0">
                         <Label Content="Method"/>
                         <TextBox 
-                                Margin="100, 0, 50, 0" 
+                                Margin="120, 0, 50, 0"
                                 x:Name="MethodTextBox"
-                                Background="DimGray"/>
+                                Text="GET"/>
+                </Panel>
+                
+                <Panel Margin="10,5,0,0">
+                        <Label Content="Content Type"/>
+                        <TextBox 
+                                Margin="120,0,50,0" 
+                                Text="text/plain"
+                                x:Name="ContentTypeTextBox"/>
+                </Panel>
+                
+                <Panel Margin="10, 5, 0, 0">
+                        <Label Content="Headers"/>
+                        <ListBox 
+                                Margin="120, 0, 50, 0" 
+                                x:Name="HeadersListBox"/>
+                </Panel>
+                
+                <Panel Margin="10, 5, 0, 0">
+                        <Label Content="Key" Margin="120,0,0,0"/>
+                        <TextBox Margin="170,0,50,0" x:Name="HeaderKeyTextBox"/>
+                </Panel>
+                
+                <Panel Margin="10,5,0,0">
+                        <Label Content="Value" Margin="120,0,0,0"/>
+                        <TextBox Margin="170,0,50,0" x:Name="HeaderValueTextBox"/>
+                </Panel>
+                
+                <Panel>
+                        <Button
+                                Content="Add Header"
+                                Margin="180,5,0,0"
+                                Click="AddHeaderButton_OnClick"/>
+                        
+                        <Button
+                                Content="Delete Header"
+                                Margin="300,5,0,0"
+                                Click="DeleteHeaderButton_OnClick"/>
                 </Panel>
                 
                 <Panel Margin="10, 5, 0, 0">
                         <Label Content="Body"/>
-                        <TextBox 
-                                Margin="100, 0, 50, 0" 
+                        <TextBox
+                                Margin="100, 0, 50, 0"
                                 x:Name="BodyTextBox"
                                 Height="175"
-                                Background="DimGray"/>
+                                AcceptsReturn="True"
+                                AcceptsTab="True"/>
                 </Panel>
                 
-                <Button 
+                <Button
                         Margin="20"
                         HorizontalAlignment="Center"
                         Content="Send!"
-                        Click="SendButton_OnClick"/>
+                        Click="SendButton_OnClick"
+                        IsDefault="True"/>
         </StackPanel>
 </Window>
