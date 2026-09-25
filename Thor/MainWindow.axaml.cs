@@ -28,7 +28,17 @@ public partial class MainWindow : Window
 
             if (CheckJsonCheckBox.IsChecked == true && (ContentTypeTextBox?.Text?.Contains("json") ?? false))
                 System.Text.Json.JsonSerializer.Deserialize<object>(BodyTextBox?.Text ?? "");
-
+            
+            foreach (var header in HeadersListBox.Items)
+            {
+                if (header is not string headerString) 
+                    continue;
+                
+                var headerParts = headerString.Split(":");
+                if (headerParts.Length == 2)
+                    request.Headers.Add(headerParts[0].Trim(), headerParts[1].Trim());
+            }
+            
             var response = await _httpClient.SendAsync(request);
             var resultWindow = new ResultWindow(response);
             resultWindow.Show(this);

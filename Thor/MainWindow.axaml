@@ -6,78 +6,80 @@
         Height="550"
         FontFamily="Mono">
         
-        <StackPanel>
-                <Panel Margin="10,5,0,0">
-                        <Label Content="URL"/>
-                        <TextBox Margin="120,0,50,0" x:Name="UrlTextBox"/>
-                </Panel>
-                
-                <Panel Margin="10,5, 0,0">
-                        <Label Content="Method"/>
-                        <TextBox 
-                                Margin="120, 0, 50, 0"
-                                x:Name="MethodTextBox "
-                                Text="GET"/>
-                </Panel>
-                
-                <Panel Margin="10,5,0,0">
-                        <Label Content="Content Type"/>
-                        <TextBox 
-                                Margin="120,0,50,0" 
-                                Text="text/plain"
-                                x:Name="ContentTypeTextBox"/>
-                </Panel>
-                
-                <Panel Margin="10, 5, 0, 0">
-                        <Label Content="Headers"/>
-                        <ListBox 
-                                Margin="120, 0, 50, 0" 
-                                x:Name="HeadersListBox"/>
-                </Panel>
-                
-                <Panel Margin="10, 5, 0, 0">
-                        <Label Content="Key" Margin="120,0,0,0"/>
-                        <TextBox Margin="170,0,50,0" x:Name="HeaderKeyTextBox"/>
-                </Panel>
-                
-                <Panel Margin="10,5,0,0">
-                        <Label Content="Value" Margin="120,0,0,0"/>
-                        <TextBox Margin="170,0,50,0" x:Name="HeaderValueTextBox"/>
-                </Panel>
-                
-                <Panel>
-                        <Button
-                                Content="Add"
-                                Margin="180,5,0,0"
-                                Click="AddHeaderButton_OnClick"/>
+        <ScrollViewer>
+                <StackPanel>
+                        <Panel Margin="10,5,0,0">
+                                <Label Content="URL"/>
+                                <TextBox Margin="120,0,50,0" x:Name="UrlTextBox"/>
+                        </Panel>
+                        
+                        <Panel Margin="10,5, 0,0">
+                                <Label Content="Method"/>
+                                <TextBox 
+                                        Margin="120, 0, 50, 0"
+                                        x:Name="MethodTextBox "
+                                        Text="GET"/>
+                        </Panel>
+                        
+                        <Panel Margin="10,5,0,0">
+                                <Label Content="Content Type"/>
+                                <TextBox 
+                                        Margin="120,0,50,0" 
+                                        Text="text/plain"
+                                        x:Name="ContentTypeTextBox"/>
+                        </Panel>
+                        
+                        <Panel Margin="10, 5, 0, 0">
+                                <Label Content="Headers"/>
+                                <ListBox 
+                                        Margin="120, 0, 50, 0" 
+                                        x:Name="HeadersListBox"/>
+                        </Panel>
+                        
+                        <Panel Margin="10, 5, 0, 0">
+                                <Label Content="Key" Margin="120,0,0,0"/>
+                                <TextBox Margin="170,0,50,0" x:Name="HeaderKeyTextBox"/>
+                        </Panel>
+                        
+                        <Panel Margin="10,5,0,0">
+                                <Label Content="Value" Margin="120,0,0,0"/>
+                                <TextBox Margin="170,0,50,0" x:Name="HeaderValueTextBox"/>
+                        </Panel>
+                        
+                        <Panel>
+                                <Button
+                                        Content="Add"
+                                        Margin="180,5,0,0"
+                                        Click="AddHeaderButton_OnClick"/>
+                                
+                                <Button
+                                        Content="Delete"
+                                        Margin="230,5,0,0"
+                                        Click="DeleteHeaderButton_OnClick"/>
+                                
+                                <CheckBox 
+                                        Content="Check JSON"
+                                        Margin="310,5,0,0"
+                                        x:Name="CheckJsonCheckBox"
+                                        IsChecked="True"/>
+                        </Panel>
+                        
+                        <Panel Margin="10, 5, 0, 0">
+                                <Label Content="Body"/>
+                                <TextBox
+                                        Margin="100, 0, 50, 0"
+                                        x:Name="BodyTextBox"
+                                        Height="175"
+                                        AcceptsReturn="True"
+                                        AcceptsTab="True"/>
+                        </Panel>
                         
                         <Button
-                                Content="Delete"
-                                Margin="230,5,0,0"
-                                Click="DeleteHeaderButton_OnClick"/>
-                        
-                        <CheckBox 
-                                Content="Check JSON"
-                                Margin="310,5,0,0"
-                                x:Name="CheckJsonCheckBox"
-                                IsChecked="True"/>
-                </Panel>
-                
-                <Panel Margin="10, 5, 0, 0">
-                        <Label Content="Body"/>
-                        <TextBox
-                                Margin="100, 0, 50, 0"
-                                x:Name="BodyTextBox"
-                                Height="175"
-                                AcceptsReturn="True"
-                                AcceptsTab="True"/>
-                </Panel>
-                
-                <Button
-                        Margin="20"
-                        HorizontalAlignment="Center"
-                        Content="Send!"
-                        Click="SendButton_OnClick"
-                        IsDefault="True"/>
-        </StackPanel>
+                                Margin="20"
+                                HorizontalAlignment="Center"
+                                Content="Send!"
+                                Click="SendButton_OnClick"
+                                IsDefault="True"/>
+                </StackPanel>
+        </ScrollViewer>
 </Window>
