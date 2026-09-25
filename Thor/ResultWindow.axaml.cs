@@ -22,7 +22,7 @@ public partial class ResultWindow : Window
             foreach (var value in v)
                 builder.Append(value);
             
-            HeadersListBox.Items.Add($"{k}: {builder}");
+            HeadersListBox.Items.Add(new HeaderPair(k, builder.ToString()));
         }
         
         BodyTextBlock.Text = response.Content.ReadAsStringAsync().Result;
