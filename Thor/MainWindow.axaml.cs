@@ -14,7 +14,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         _httpClient = new HttpClient();
-        HeadersListBox.Items.Add("User-Agent: Thor");
+        HeadersListBox.Items.Add(new HeaderPair("User-Agent", "Thor"));
     }
 
     private async void SendButton_OnClick(object? sender, RoutedEventArgs e)
@@ -30,14 +30,8 @@ public partial class MainWindow : Window
                 System.Text.Json.JsonSerializer.Deserialize<object>(BodyTextBox?.Text ?? "");
             
             foreach (var header in HeadersListBox.Items)
-            {
-                if (header is not string headerString) 
-                    continue;
-                
-                var headerParts = headerString.Split(":");
-                if (headerParts.Length == 2)
-                    request.Headers.Add(headerParts[0].Trim(), headerParts[1].Trim());
-            }
+                if (header is HeaderPair headerPair)
+                    request.Headers.Add(headerPair.Key, headerPair.Value);
             
             var response = await _httpClient.SendAsync(request);
             var resultWindow = new ResultWindow(response);
@@ -66,7 +60,7 @@ public partial class MainWindow : Window
                 || HeaderKeyTextBox.Text.Contains('\r'))
                 throw new InvalidOperationException("Header keys may not contain whitespace");
 
-            HeadersListBox.Items.Add($"{HeaderKeyTextBox.Text.Trim()}: {HeaderValueTextBox.Text.Trim()}");
+            HeadersListBox.Items.Add(new HeaderPair(HeaderKeyTextBox.Text.Trim(), HeaderValueTextBox.Text.Trim()));
             HeaderKeyTextBox.Text = "";
             HeaderValueTextBox.Text = "";
         }
@@ -79,7 +73,7 @@ public partial class MainWindow : Window
 
     private void DeleteHeaderButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        if (HeadersListBox.SelectedItem is not string item)
+        if (HeadersListBox.SelectedItem is not HeaderPair item)
             return;
         
         HeadersListBox.Items.Remove(item);
