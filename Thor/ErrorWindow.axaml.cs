@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -10,11 +11,11 @@ public partial class ErrorWindow : Window
         InitializeComponent();
     }
 
-    public ErrorWindow(string title, string message)
+    public ErrorWindow(Exception ex)
     {
         InitializeComponent();
-        TitleLabel.Content = title;
-        MessageTextBlock.Text = message;
+        TitleLabel.Content = ex.GetType().ToString();
+        MessageTextBlock.Text = ex.Message;
     }
 
     private void CloseButton_OnClick(object? sender, RoutedEventArgs e)
