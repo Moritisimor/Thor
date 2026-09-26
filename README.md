@@ -31,8 +31,12 @@ Once built, you can start the application by running the executable located in `
 
 The executable is called `Thor` or `Thor.exe` if you are running on Windows.
 
-You should be familiar with HTTP requests and responses to use Thor effectively.
+You should be familiar with the HTTP protocol.
 
 The Check JSON checkbox is only active if the Content-Type is set to contain `json`, most commonly `application/json`.
 
 Otherwise, it will not check the JSON body.
+
+The send-button is used for simply sending an HTTP Request and displaying response data in a separate window.
+
+The download-button is used for downloading the response body to a file.
